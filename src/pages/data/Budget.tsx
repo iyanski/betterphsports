@@ -183,7 +183,7 @@ export default function Budget() {
               </p>
             </SectionHeading>
 
-            <figure className="mt-10">
+            <figure className="mt-10 max-w-4xl">
               <ChartLegend
                 items={[
                   { label: 'Appropriated', color: MONEY.appropriated },
@@ -241,7 +241,7 @@ export default function Budget() {
               </p>
             </div>
 
-            <figure className="mt-8">
+            <figure className="mt-8 max-w-4xl">
               <TrendChart
                 ariaLabel="PSC adjusted appropriations, obligations and disbursements excluding FY2019, FY2017 to FY2026"
                 yFormat={pesoAxis}
@@ -310,7 +310,7 @@ export default function Budget() {
               </p>
             </SectionHeading>
 
-            <figure className="mt-10">
+            <figure className="mt-10 max-w-4xl">
               <Waterfall
                 ariaLabel={`How the PSC's FY${fy2025.fiscalYear} appropriation was reduced at each stage`}
                 steps={[
@@ -378,7 +378,7 @@ export default function Budget() {
               </p>
             </SectionHeading>
 
-            <figure className="mt-10">
+            <figure className="mt-10 max-w-4xl">
               <ColumnChart
                 data={fullYears.map(y => ({
                   key: y.fiscalYear,
@@ -433,7 +433,7 @@ export default function Budget() {
               </p>
             </SectionHeading>
 
-            <figure className="mt-10">
+            <figure className="mt-10 max-w-4xl">
               <ChartLegend
                 items={[
                   { label: 'Never released', color: MONEY.unreleased },
@@ -548,7 +548,7 @@ export default function Budget() {
               </p>
             </SectionHeading>
 
-            <div className="mt-10">
+            <div className="mt-10 max-w-4xl">
               <DataTable<BudgetYear>
                 caption="PSC agency-specific budget by fiscal year, FY2017 to FY2026"
                 rows={budgetYears}
