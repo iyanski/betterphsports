@@ -27,6 +27,7 @@ export default function StackedColumns({
   height = 280,
   yFormat = fmt,
   refLine,
+  emptyLabel = 'no document',
 }: {
   groups: ColumnGroup[];
   series: SeriesDef[];
@@ -36,6 +37,8 @@ export default function StackedColumns({
   height?: number;
   yFormat?: (n: number) => string;
   refLine?: { value: number; label?: string };
+  /** What a column with no figures at all says. */
+  emptyLabel?: string;
 }) {
   if (!groups.length || !series.length) return null;
 
@@ -43,6 +46,10 @@ export default function StackedColumns({
 
   const totalOf = (g: ColumnGroup) =>
     series.reduce((a, s) => a + (g.values[s.key] ?? 0), 0);
+
+  /** Whether any series reported a figure for this column, zero included. */
+  const known = (g: ColumnGroup) =>
+    series.some(s => g.values[s.key] !== null && g.values[s.key] !== undefined);
 
   const max =
     stack === 'expand'
@@ -90,9 +97,12 @@ export default function StackedColumns({
       {groups.map((g, i) => {
         const cx = f.l + i * step + step / 2;
         const total = totalOf(g);
-        // A column with nothing in it is a year with no document; leave it
-        // empty rather than drawing a zero-height bar that reads as "zero".
-        if (total <= 0) {
+        // Nothing reported and nothing measured are different claims, and this
+        // chart has to keep them apart: a year with no document gets the label,
+        // a year that reported zero gets a rule on the baseline. Collapsing the
+        // two would let a missing filing read as an agency that did nothing,
+        // or an agency that did nothing read as a missing filing.
+        if (!known(g)) {
           return (
             <text
               key={g.label}
@@ -104,8 +114,22 @@ export default function StackedColumns({
               fontFamily={CHROME.axisFont}
               transform={`rotate(-90 ${cx} ${f.t + f.ih / 2})`}
             >
-              no document
+              {emptyLabel}
             </text>
+          );
+        }
+        if (total <= 0) {
+          return (
+            <rect
+              key={g.label}
+              x={cx - bw / 2}
+              y={y(0) - 1.5}
+              width={bw}
+              height={1.5}
+              fill={CHROME.axisText}
+            >
+              <title>{`${g.label} — ${yFormat(0)}`}</title>
+            </rect>
           );
         }
 

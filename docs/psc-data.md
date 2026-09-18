@@ -13,21 +13,23 @@ everything else under `data/` is meant to be committed.
 
 ## Where we are
 
-|                                                | Status                                                                             |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Document catalogue                             | ✅ done — 190 links, 178 unique URLs, 170 in scope                                 |
-| Acquisition                                    | ✅ done — **142 of 170** in-scope documents, 365 MB, 929 pages, all hash-verified  |
-| Dead-link recovery                             | ⚠️ blocked — archive.org rate-limits (429 on every request)                        |
-| Render + OCR                                   | ✅ done for FAR No.1 (179 pages) and FAR No.5 (37 pages); other series not yet run |
-| FAR No.1 extraction                            | ⚠️ **61% of rows balance** — geometry solved, digit errors remain                  |
-| FAR No.5 extraction                            | ✅ **85% of rows balance**, and every published figure is cross-read               |
-| Vision verification                            | ✅ run for the FAR No.1 headline rows, all 10 years; not yet for detail rows       |
-| Shared chart components                        | ✅ done                                                                            |
-| `/data` index + navigation                     | ✅ done                                                                            |
-| `/data/participation`                          | ✅ live (refactored onto shared components, no visual change)                      |
-| `/data/revenue` ("Where the money comes from") | ✅ live — FY2017–FY2026 from FAR No.5                                              |
-| `/data/budget` ("Ten years of money")          | ✅ live — FY2017–FY2026, all 10 years cross-read from the page images              |
-| Other four story pages                         | ⛔ not started                                                                     |
+|                                                | Status                                                                            |
+| ---------------------------------------------- | --------------------------------------------------------------------------------- |
+| Document catalogue                             | ✅ done — 190 links, 178 unique URLs, 170 in scope                                |
+| Acquisition                                    | ✅ done — **142 of 170** in-scope documents, 365 MB, 929 pages, all hash-verified |
+| Dead-link recovery                             | ⚠️ blocked — archive.org rate-limits (429 on every request)                       |
+| Render + OCR                                   | ✅ done for FAR No.1 (179 pages), FAR No.5 (37) and BAR No.1 (38); `far4` not run |
+| FAR No.1 extraction                            | ⚠️ **61% of rows balance** — geometry solved, digit errors remain                 |
+| FAR No.5 extraction                            | ✅ **85% of rows balance**, and every published figure is cross-read              |
+| BAR No.1 extraction                            | ✅ all 59 rows read from the page images and corroborated against the OCR         |
+| Vision verification                            | ✅ run for the FAR No.1 headline rows, all 10 years; not yet for detail rows      |
+| Shared chart components                        | ✅ done                                                                           |
+| `/data` index + navigation                     | ✅ done                                                                           |
+| `/data/participation`                          | ✅ live (refactored onto shared components, no visual change)                     |
+| `/data/revenue` ("Where the money comes from") | ✅ live — FY2017–FY2026 from FAR No.5                                             |
+| `/data/budget` ("Ten years of money")          | ✅ live — FY2017–FY2026, all 10 years cross-read from the page images             |
+| `/data/delivery` ("Promised, and delivered")   | ✅ live — FY2017–FY2026 from BAR No.1, targets against reported accomplishment    |
+| Other three story pages                        | ⛔ not started                                                                    |
 
 ---
 
@@ -82,7 +84,8 @@ npm run psc:far1       # 06 - reconstruct FAR No.1 tables, cross-foot them
 npm run psc:far5       # 07 - reconstruct FAR No.5 tables, cross-foot them
 npm run psc:revenue    # 08 - reconcile FAR No.5 into data/derived/revenue/series.json
 npm run psc:verify     # 09 - cut verification strips             (--top-band)
-npm run psc:test       # unit tests for number parsing and repair
+npm run psc:bar1       # 10 - corroborate the BAR No.1 figures against the OCR (--verbose)
+npm run psc:test       # unit tests, plus the budget, revenue and delivery suites
 ```
 
 **The build must never depend on any of this.** The pipeline needs macOS Vision and a
@@ -246,6 +249,55 @@ one of them 2400 × 1638. Across the live corpus there are **36 distinct PDF pro
 producer recorded. This is not one archive; it is a decade of separate digitisation
 efforts, which is why a single geometric model does not carry across years.
 
+### BAR No.1: read by eye, checked by machine
+
+The physical report is a different problem from the financial ones. A year's filing is
+**one page with six indicator rows**, not 170 rows of pesos — sixty rows for the whole
+decade. Building a geometric reconstruction for ten filings that share no two page
+sizes, to recover sixty rows, would be machinery with nothing to do afterwards.
+
+So the reading was inverted. Every cell was read from the 300 dpi page image, in
+left/right halves at a magnification where the digits are unambiguous, and typed into
+`src/data/psc/delivery.ts`. Two independent checks then stand behind each figure:
+
+- **`delivery.test.mjs`** recomputes the form's three identities — quarterly targets
+  against the annual target, quarterly results against the annual result, variance
+  against their difference. 150 checks over 59 rows.
+- **`10-bar1.mjs`** asks the Vision OCR of the same render whether each published figure
+  is printed where it is claimed to be: it clusters the page's tokens into visual rows
+  and requires the row's figures to appear **in column order**, left to right. 516 of 593
+  figures (87%) are found in their own row; 65 more are found elsewhere in the statement
+  and recorded as the weaker evidence they are — a lone `0` matches anywhere, and
+  FY2017's targets are restated in a block of their own on page 2. **Twelve are not found
+  at all**: two zeroes, and ten cells on the FY2019, FY2020 and FY2023 pages that Vision
+  dropped or misread. Each of the twelve is locked by its own row's
+  arithmetic — the quarters against the printed total, and in FY2019 the percentage the
+  remark quotes — and every cell the two readings actively disagreed on was read again at
+  pixel scale before being published.
+
+**The disagreements are the point.** OCR read FY2019's `6,270` as `8,270` and its `76`
+as `78` — the same 6-for-8 confusion, on a scan whose 6 loses its upper-left stroke. In
+each case the row's own arithmetic settles it, and the crop was re-read at pixel scale
+to confirm. FY2021 needs neither: that PDF carries a real text layer, so `pdftotext`
+is a third witness to its `46,087` target and its `0` variance. It also caught one the other way: FY2019's athletes-supported variance
+really does read **228**, where 1,215 − 989 is 226 and the agency's own remark ("Increase
+of 22.85%") is 226/989. That row had been typed as 226 from the half-page crop. Without
+the second witness it would have been published as a clean row.
+
+### Nine rows that do not add up, and they stay that way
+
+Nine of the 150 identities fail, in the agency's figures rather than in the reading:
+four annual totals that disagree with the quarters printed beside them (by 4, 20, 27 and
+1), FY2021's Sports-for-All target written as `46,087` four times against a printed
+total of `187,230`, and four variance cells. The variances are the ones that matter — a
+year with zero delivery against a target of 17,660 has "None" in the variance column,
+and FY2021's LGU row has a plain `0`.
+
+These are published exactly as printed. Each row declares its own `anomalies`, and the
+test asserts that the set of identities which fail is **exactly** the declared set: a new
+disagreement fails the run, and so does a declared one that quietly stops failing. That
+is what keeps a transcription slip from being presented as an agency error.
+
 ### The verification design
 
 `09-verify-crops.mjs` cuts the rows that matter into left/right half-strips at a
@@ -309,17 +361,20 @@ All four read from `src/data/psc/stories.ts`:
 
 ## Next steps
 
-1. **Run the vision verification** on the ~14 top-band strips → verified figures for the
-   FAR No.1 spine across all ten years.
-2. **Build `/data/budget`** on those figures. Sections are specified in the plan:
-   the thirteen-year line, the funnel (`Waterfall` — FAR No.1's structure _is_ a
-   waterfall), utilisation rate, PS/MOOE/CO composition, the money that never arrived.
-3. Layout profiles for FY2017, FY2018, FY2025.
+1. **`/data/programs`** — programme-level spending from FAR No.1, which needs the layout
+   profiles below before the detail rows are trustworthy.
+2. Layout profiles for FY2017, FY2018, FY2025 FAR No.1; four documents still resolve no
+   statements at all.
+3. Run render+OCR for `far4`, the only remaining series in a story's way.
 4. Retry Wayback for the 28 dead links, slowly.
-5. Run render+OCR for `bar1` and `far4`. `far5` is done.
+5. **`/data/sources`** — the manifest is already committed and carries its own findings
+   block, so this page is mostly writing.
 6. Wire Meilisearch — `scripts/index-content.mjs` can import `stories.ts` directly
-   rather than parsing TSX. Add a sitemap; the mobile nav already links `/sitemap` and it
-   goes nowhere.
+   rather than parsing TSX, and should carry the four live story pages. Add a sitemap;
+   the mobile nav already links `/sitemap` and it goes nowhere.
+7. The FY2018 filing has a **National Sports Development Fund** block under automatic
+   appropriations with all six indicators listed and every cell blank. Worth checking
+   whether the other years do the same before making anything of it.
 
 ## Known data gaps
 
