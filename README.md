@@ -8,6 +8,8 @@ does so as scanned PDFs, one document at a time, with no way to compare a year a
 the one before it. This project mirrors those documents, reads them, checks the
 arithmetic, and publishes the result as charts and downloadable tables.
 
+![The Better Philippine Sports home page: a hero reading "Better Philippine Sports — programs, facilities, and support for Filipino athletes, and a clear look at how the agency works", above cards for Grassroots Sports, National Athletes, Sports Facilities and Sports Development](docs/images/home.png)
+
 > **Not an official PSC website.** Everything here is built from documents the agency
 > published itself. Figures are machine-read from scans and may contain errors; each
 > page states how its numbers were read and links to the original.
