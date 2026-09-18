@@ -101,8 +101,9 @@ export const stories: Story[] = [
       'Philippine Sports Commission physical targets against reported accomplishment, from the agency’s own quarterly BAR No. 1 reports.',
     keywords:
       'PSC targets, BAR No. 1, physical report of operation, performance, accountability',
-    status: 'building',
+    status: 'live',
     sources: ['BAR No. 1'],
+    stat: { value: '43 of 53', label: 'targets it reports meeting' },
   },
   {
     slug: 'programs',

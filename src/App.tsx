@@ -23,6 +23,7 @@ const Participation = lazy(() => import('./pages/Participation'));
 const DataIndex = lazy(() => import('./pages/data/DataIndex'));
 const Budget = lazy(() => import('./pages/data/Budget'));
 const Revenue = lazy(() => import('./pages/data/Revenue'));
+const Delivery = lazy(() => import('./pages/data/Delivery'));
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
                     "not found". */}
                 <Route path="/data" element={<DataIndex />} />
                 <Route path="/data/budget" element={<Budget />} />
+                <Route path="/data/delivery" element={<Delivery />} />
                 <Route path="/data/participation" element={<Participation />} />
                 <Route path="/data/revenue" element={<Revenue />} />
                 {isMeilisearchEnabled && (

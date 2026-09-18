@@ -1,0 +1,568 @@
+{
+  "generatedAt": "2026-09-18T14:57:22.938Z",
+  "years": [
+    {
+      "fiscalYear": 2017,
+      "docId": "bar1-2017-q4",
+      "pages": [1, 2],
+      "figures": 30,
+      "corroborated": 27,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 6,
+          "corroborated": 5,
+          "seenElsewhere": ["target"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 6,
+          "corroborated": 5,
+          "seenElsewhere": ["target"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 6,
+          "corroborated": 5,
+          "seenElsewhere": ["target"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 6,
+          "corroborated": 6,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 6,
+          "corroborated": 6,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2018,
+      "docId": "bar1-2018-q4",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 64,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 10,
+          "seenElsewhere": [],
+          "uncorroborated": ["target Q4=0"]
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 10,
+          "seenElsewhere": [],
+          "uncorroborated": ["target Q4=0"]
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2019,
+      "docId": "bar1-2019-q4",
+      "pages": [1],
+      "figures": 63,
+      "corroborated": 52,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 10,
+          "corroborated": 4,
+          "seenElsewhere": ["actual Q2", "actual Q4"],
+          "uncorroborated": [
+            "target=15,759",
+            "actual Q3=6,270",
+            "actual=17,585",
+            "variance=1,826"
+          ]
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 10,
+          "seenElsewhere": ["variance"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 10,
+          "corroborated": 8,
+          "seenElsewhere": [],
+          "uncorroborated": ["target Q4=76", "actual=576"]
+        },
+        {
+          "indicator": "events",
+          "figures": 10,
+          "corroborated": 8,
+          "seenElsewhere": ["actual Q2"],
+          "uncorroborated": ["actual Q4=7"]
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2020,
+      "docId": "bar1-2020-q4",
+      "pages": [1],
+      "figures": 64,
+      "corroborated": 48,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 10,
+          "corroborated": 4,
+          "seenElsewhere": [
+            "target Q4",
+            "actual Q1",
+            "actual Q2",
+            "actual Q3",
+            "actual Q4",
+            "actual"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 9,
+          "seenElsewhere": ["target Q2", "target Q4"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 8,
+          "seenElsewhere": ["actual Q2"],
+          "uncorroborated": ["actual Q3=9", "actual Q4=5"]
+        },
+        {
+          "indicator": "lgus",
+          "figures": 10,
+          "corroborated": 5,
+          "seenElsewhere": [
+            "actual Q1",
+            "actual Q2",
+            "actual Q3",
+            "actual Q4",
+            "actual"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2021,
+      "docId": "bar1-2021-q4",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 55,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 6,
+          "seenElsewhere": [
+            "actual Q1",
+            "actual Q2",
+            "actual Q3",
+            "actual Q4",
+            "actual"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 5,
+          "seenElsewhere": [
+            "actual Q1",
+            "actual Q2",
+            "actual Q3",
+            "actual Q4",
+            "actual",
+            "variance"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2022,
+      "docId": "bar1-2022-q4",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 63,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 10,
+          "seenElsewhere": ["actual Q3"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 9,
+          "seenElsewhere": ["actual Q2", "actual Q3"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2023,
+      "docId": "bar1-2023-q4",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 59,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 7,
+          "seenElsewhere": ["target Q4", "actual Q2", "actual Q3", "actual"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 9,
+          "seenElsewhere": ["target Q4"],
+          "uncorroborated": ["actual=261,318"]
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 10,
+          "seenElsewhere": ["actual Q3"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2024,
+      "docId": "bar1-2024",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 56,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 6,
+          "seenElsewhere": [
+            "target Q1",
+            "target Q2",
+            "actual Q1",
+            "actual Q2",
+            "actual Q3"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 6,
+          "seenElsewhere": [
+            "target Q1",
+            "target Q2",
+            "actual Q1",
+            "actual Q2",
+            "actual Q3"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2025,
+      "docId": "bar1-2025-q4",
+      "pages": [1],
+      "figures": 66,
+      "corroborated": 56,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 11,
+          "corroborated": 6,
+          "seenElsewhere": [
+            "target Q1",
+            "target Q2",
+            "actual Q1",
+            "actual Q2",
+            "actual Q3"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 11,
+          "corroborated": 6,
+          "seenElsewhere": [
+            "target Q3",
+            "target Q4",
+            "target",
+            "actual Q2",
+            "actual Q3"
+          ],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 11,
+          "corroborated": 11,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    },
+    {
+      "fiscalYear": 2026,
+      "docId": "bar1-2026-q2",
+      "pages": [1],
+      "figures": 40,
+      "corroborated": 36,
+      "rows": [
+        {
+          "indicator": "grassroots",
+          "figures": 6,
+          "corroborated": 4,
+          "seenElsewhere": ["actual Q1", "actual Q2"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "sportsForAll",
+          "figures": 7,
+          "corroborated": 7,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "competitions",
+          "figures": 7,
+          "corroborated": 7,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "lgus",
+          "figures": 6,
+          "corroborated": 4,
+          "seenElsewhere": ["actual Q1", "actual Q2"],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "events",
+          "figures": 7,
+          "corroborated": 7,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        },
+        {
+          "indicator": "athletesSupported",
+          "figures": 7,
+          "corroborated": 7,
+          "seenElsewhere": [],
+          "uncorroborated": []
+        }
+      ]
+    }
+  ],
+  "figures": 593,
+  "corroborated": 516,
+  "seenElsewhere": 65,
+  "zeroMisses": 2,
+  "rate": 0.8701517706576728
+}
